@@ -2,7 +2,7 @@ services:
   - type: web
     name: blogging-platform-backend
     runtime: node
-    buildCommand: npm install
+    buildCommand: cd backend && npm install
     startCommand: npm start
     envVars:
       - key: NODE_ENV
@@ -23,7 +23,7 @@ services:
   - type: web
     name: blogging-platform-frontend
     runtime: static
-    buildCommand: npm run build
+    buildCommand: cd frontend && npm install && npm run build
     staticPublishPath: ./dist
     pullRequestPreviewsEnabled: true
     envVars:
