@@ -1,0 +1,15 @@
+/* frontend/src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Optional: Set a consistent box model */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    @apply bg-gray-50 text-gray-800; /* Use Tailwind classes for base styling */
+}
