@@ -49,7 +49,15 @@ const Header = () => {
                         <>
                             {/* User Profile Dropdown Placeholder (Industry Level) */}
                             <Link to="/profile" className="flex items-center text-gray-700 hover:text-indigo-600 transition duration-150">
-                                <FaUserCircle className="text-xl mr-1" />
+                                {userInfo.profilePicture ? (
+                                    <img
+                                        src={userInfo.profilePicture}
+                                        alt="Profile"
+                                        className="w-8 h-8 rounded-full object-cover mr-2 border-2 border-indigo-500"
+                                    />
+                                ) : (
+                                    <FaUserCircle className="text-xl mr-2" />
+                                )}
                                 {userInfo.username}
                             </Link>
 
