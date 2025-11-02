@@ -23,7 +23,12 @@ services:
   - type: web
     name: blogging-platform-frontend
     runtime: static
-    buildCommand: cd frontend && npm install && npm run build
+  # Ensure devDependencies (Vite, build plugins) are installed during the build step.
+  # Use an env var to force npm to include devDependencies and `npm ci` to install
+  # from lockfile; this is compatible with older npm versions that may not support
+  # `--include=dev`.
+  # The command below sets NPM_CONFIG_PRODUCTION=false for the install only.
+  buildCommand: cd frontend && NPM_CONFIG_PRODUCTION=false npm ci && npm run build
     staticPublishPath: ./dist
     pullRequestPreviewsEnabled: true
     envVars:
